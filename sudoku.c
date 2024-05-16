@@ -56,7 +56,7 @@ List* get_adj_nodes(Node* n)
       {
          for(int j = 0; j < 9; j++)
             {
-               if(n->sudo[i][j] == 0)
+               if(n->sudo[i][j] != 0)
                {
                   printf("(%i, %i) ", i, j);
                }
