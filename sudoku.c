@@ -105,22 +105,21 @@ int is_final(Node* n)
 
 Node* DFS(Node* initial, int* cont)
 {
-   Stack* s = createStack();
-   push(s, initial);
-   while(!is_empty(s))
+   Stack* s = createStack(); // se crea el stack
+   push(s, initial); // se agrega el nodo a la primera posicion al stack
+   while(!is_empty(s)) // mientras no esté vacío el stack
       {
-         Node* n = top(s);
-         pop(s);
-         if(is_final(n)) return n;
-         List* list = get_adj_nodes(n);
-         Node* aux = first(list);
-         while(aux)
+         Node* n = top(s); // se obtiene el nodo del stack
+         pop(s); // se elimina el nodo del stack
+         if(is_final(n)) return n; // si es un estado final, se retorna el nodo
+         List* list = get_adj_nodes(n); // Obtener la lista de nodos adyacentes al nodo.
+         Node* aux = first(list); // se obtiene el primer nodo de la lista
+         while(aux) // mientras no sea el final de la lista
             {
-               push(s, aux);
-               aux = next(list);
+               push(s, aux); // se agrega el nodo al stack
+               aux = next(list); // se obtiene el siguiente nodo de la lista
             }
-         free(n);
-         (*cont)++;
+         free(n); // se libera la memoria del nodo
       }
    
    return NULL;
