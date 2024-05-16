@@ -59,7 +59,9 @@ List* get_adj_nodes(Node* n)
                if(n->sudo[i][j] == 0)
                {
                   copy(n);
-                  n->sudo[i][j] = 1;
+                  Node* adj = n;
+                  adj->sudo[i][j] = 1;
+                  pushBack(list, adj);
                }
                printf("%i ", n->sudo[i][j]);
             }
