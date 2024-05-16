@@ -103,3 +103,9 @@ sudoku.c:60:22: error: ‘Node’ has no member named ‘sumo’; did you mean �
       |                      sudo
 Compilation failed
 07f0838
+Thu 16 May 2024 09:14:30 PM UTC: 
+ sudoku.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+ tests:  2|4
+total_score: 15/70
+077bb6f
