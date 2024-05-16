@@ -43,52 +43,54 @@ void print_node(Node* n){
     printf("\n");
 }
 
-int is_valid(Node* n) {
+int is_valid(Node* n) 
+{
     int i, j;
     int fila[9][10] = {0}; // Arreglo para marcar números en filas
     int columna[9][10] = {0}; // Arreglo para marcar números en columnas
     int submatriz[3][3][10] = {0}; // Arreglo para marcar números en submatrices de 3x3
 
     for (i = 0; i < 9; i++) {
-        for (j = 0; j < 9; j++) {
+        for (j = 0; j < 9; j++) 
+        {
             if (n->sudo[i][j] == 0) continue; // Si la celda está vacía, saltar a la siguiente
+           
             int num = n->sudo[i][j];
-            // Verificar fila
-            if (fila[i][num]) return 0;
+            if (fila[i][num]) return 0;// Verificar fila
             fila[i][num] = 1;
-            // Verificar columna
-            if (columna[j][num]) return 0;
+           
+            if (columna[j][num]) return 0; // Verificar columna
             columna[j][num] = 1;
-            // Verificar submatriz de 3x3
-            if (submatriz[i / 3][j / 3][num]) return 0;
+           
+            if (submatriz[i / 3][j / 3][num]) return 0; // Verificar submatriz de 3x3
             submatriz[i / 3][j / 3][num] = 1;
         }
     }
-    return 1; // Si no se encontraron problemas, el estado es válido
+    return 1;
 }
 
 
-List* get_adj_nodes(Node* n) {
+List* get_adj_nodes(Node* n) 
+{
    List* list = createList();
 
-   for (int i = 0; i < 9; i++) {
-      for (int j = 0; j < 9; j++) {
-         if (n->sudo[i][j] == 0) {
-               for (int k = 1; k <= 9; k++) {
+   for (int i = 0; i < 9; i++) 
+      for (int j = 0; j < 9; j++) 
+         if (n->sudo[i][j] == 0) 
+         {
+               for (int k = 1; k <= 9; k++) 
+               {
                   Node* adj = copy(n);
                   adj->sudo[i][j] = k;
 
-                  if (is_valid(adj)) {
+                  if (is_valid(adj))
                      pushBack(list, adj);
-                  } else {
+                  else
                      free(adj); // Liberar memoria si el Node no es válido
-                  }
                }
                return list; // Terminar la función una vez que se encuentre un espacio vacío
          }
-      }
-    }
-    return list; // Si no hay espacios vacíos, devolver la lista vacía
+    return list;
 }
 
 
