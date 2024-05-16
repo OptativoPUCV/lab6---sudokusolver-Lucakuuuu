@@ -43,7 +43,7 @@ void print_node(Node* n){
     printf("\n");
 }
 
-int es_valido(Nodo* n) {
+int is_valid(Node* n) {
     int i, j;
     int fila[9][10] = {0}; // Arreglo para marcar números en filas
     int columna[9][10] = {0}; // Arreglo para marcar números en columnas
@@ -81,7 +81,7 @@ List* get_adj_nodes(Node* n) {
                   if (is_valid(adj)) {
                      pushBack(list, adj);
                   } else {
-                     free(adj); // Liberar memoria si el nodo no es válido
+                     free(adj); // Liberar memoria si el Node no es válido
                   }
                }
                return list; // Terminar la función una vez que se encuentre un espacio vacío
