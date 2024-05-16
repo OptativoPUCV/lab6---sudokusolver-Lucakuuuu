@@ -105,23 +105,23 @@ int is_final(Node* n)
 
 Node* DFS(Node* initial, int* cont)
 {
-   Stack* s = createStack(); push(s, initial); // se crea el stacky se agrega el nodo a la primera posicion al stack
-   while(!is_empty(s)) // mientras no esté vacío el stack
+   Stack* s = createStack(); push(s, initial); // 1.- se crea el stacky se agrega el nodo a la primera posicion al stack
+   while(!is_empty(s)) // 2.- mientras no esté vacío el stack
       {
-         Node* n = top(s); // se obtiene el nodo del stack
-         pop(s); // se elimina el nodo del stack
-         if(is_final(n)) return n; // si es un estado final, se retorna el nodo
-         List* list = get_adj_nodes(n); // Obtener la lista de nodos adyacentes al nodo.
-         Node* aux = first(list); // se obtiene el primer nodo de la lista
-         while(aux) // mientras no sea el final de la lista
+         Node* n = top(s); pop(s); // a) se obtiene el nodo del stack y se elimina el nodo del stack
+         if(is_final(n)) return n; // b) se verifica si es un estado final, se retorna el nodo
+         List* list = get_adj_nodes(n); // c) Obtener la lista de nodos adyacentes al nodo.
+         // d) Agregar los nodos de la lista (uno por uno) al stack S.
+         Node* aux = first(list);
+         while(aux)
             {
-               push(s, aux); // se agrega el nodo al stack
-               aux = next(list); // se obtiene el siguiente nodo de la lista
+               push(s, aux);
+               aux = next(list);
             }
-         free(n); // se libera la memoria del nodo
-         (*cont)++; // se incrementa el contador
+         free(n); // e) se libera la memoria del nodo
+         (*cont)++;
       }
-   return NULL; // si se recorre toda la matriz 9x9 y no se encuentra un estado final, se retorna NULL
+   return NULL; //  3.- si se recorre toda la matriz 9x9 y no se encuentra un estado final, se retorna NULL
 }
 
 /*
