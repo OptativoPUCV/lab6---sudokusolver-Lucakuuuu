@@ -92,3 +92,14 @@ Thu 16 May 2024 09:08:06 PM UTC:
  tests:  0|5
 total_score: 0/70
 ad8ceac
+Thu 16 May 2024 09:14:24 PM UTC: 
+ sudoku.c | 15 +++++++++++----
+ 1 file changed, 11 insertions(+), 4 deletions(-)
+In file included from test.c:5:
+sudoku.c: In function ‘get_adj_nodes’:
+sudoku.c:60:22: error: ‘Node’ has no member named ‘sumo’; did you mean ‘sudo’?
+   60 |                if(n->sumo[i][j] == 0)
+      |                      ^~~~
+      |                      sudo
+Compilation failed
+07f0838
