@@ -105,8 +105,7 @@ int is_final(Node* n)
 
 Node* DFS(Node* initial, int* cont)
 {
-   Stack* s = createStack(); // se crea el stack
-   push(s, initial); // se agrega el nodo a la primera posicion al stack
+   Stack* s = createStack(); push(s, initial); // se crea el stacky se agrega el nodo a la primera posicion al stack
    while(!is_empty(s)) // mientras no esté vacío el stack
       {
          Node* n = top(s); // se obtiene el nodo del stack
