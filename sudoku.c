@@ -43,29 +43,30 @@ void print_node(Node* n){
     printf("\n");
 }
 
-int is_valid(Node* n) {
+int es_valido(Nodo* n) {
     int i, j;
-    int row[9][10] = {0}; // Arreglo para marcar números en filas
-    int col[9][10] = {0}; // Arreglo para marcar números en columnas
-    int subgrid[3][3][10] = {0}; // Arreglo para marcar números en submatrices de 3x3
+    int fila[9][10] = {0}; // Arreglo para marcar números en filas
+    int columna[9][10] = {0}; // Arreglo para marcar números en columnas
+    int submatriz[3][3][10] = {0}; // Arreglo para marcar números en submatrices de 3x3
 
     for (i = 0; i < 9; i++) {
         for (j = 0; j < 9; j++) {
             if (n->sudo[i][j] == 0) continue; // Si la celda está vacía, saltar a la siguiente
             int num = n->sudo[i][j];
             // Verificar fila
-            if (row[i][num]) return 0;
-            row[i][num] = 1;
+            if (fila[i][num]) return 0;
+            fila[i][num] = 1;
             // Verificar columna
-            if (col[j][num]) return 0;
-            col[j][num] = 1;
+            if (columna[j][num]) return 0;
+            columna[j][num] = 1;
             // Verificar submatriz de 3x3
-            if (subgrid[i / 3][j / 3][num]) return 0;
-            subgrid[i / 3][j / 3][num] = 1;
+            if (submatriz[i / 3][j / 3][num]) return 0;
+            submatriz[i / 3][j / 3][num] = 1;
         }
     }
     return 1; // Si no se encontraron problemas, el estado es válido
 }
+
 
 List* get_adj_nodes(Node* n) {
    List* list = createList();

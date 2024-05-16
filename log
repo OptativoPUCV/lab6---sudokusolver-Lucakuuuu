@@ -163,3 +163,18 @@ Thu 16 May 2024 09:46:27 PM UTC:
  tests:  6|2
 total_score: 45/70
 7ad1896
+Thu 16 May 2024 09:47:54 PM UTC: 
+ sudoku.c | 20 ++++++++++----------
+ 1 file changed, 10 insertions(+), 10 deletions(-)
+In file included from test.c:5:
+sudoku.c:46:15: error: unknown type name ‘Nodo’; did you mean ‘Node’?
+   46 | int es_valido(Nodo* n) {
+      |               ^~~~
+      |               Node
+sudoku.c: In function ‘get_adj_nodes’:
+sudoku.c:81:23: error: implicit declaration of function ‘is_valid’ [-Werror=implicit-function-declaration]
+   81 |                   if (is_valid(adj)) {
+      |                       ^~~~~~~~
+cc1: all warnings being treated as errors
+Compilation failed
+e3f8361
