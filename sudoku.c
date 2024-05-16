@@ -68,7 +68,6 @@ List* get_adj_nodes(Node* n)
                      }
                }
             }
-         printf("\n");
       }
    return list;
 }
