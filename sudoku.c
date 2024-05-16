@@ -120,14 +120,11 @@ Node* DFS(Node* initial, int* cont)
                aux = next(list); // se obtiene el siguiente nodo de la lista
             }
          free(n); // se libera la memoria del nodo
+         (*cont)++; // se incrementa el contador
       }
-   
-   return NULL;
+   return NULL; // si se recorre toda la matriz 9x9 y no se encuentra un estado final, se retorna NULL
 }
 
-
-
-/*
 int main( int argc, char *argv[] ){
 
   Node* initial= read_file("s12a.txt");;
@@ -138,4 +135,4 @@ int main( int argc, char *argv[] ){
   print_node(final);
 
   return 0;
-}*/
+}
