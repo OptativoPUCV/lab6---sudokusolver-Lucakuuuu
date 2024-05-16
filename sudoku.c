@@ -54,11 +54,8 @@ List* get_adj_nodes(Node* n)
    List* list=createList();
    int i, j, k;
    for(i = 0; i < 9; i++)
-      {
          for(j = 0; j < 9; j++)
-            {
                if(n->sudo[i][j] == 0)
-               {
                   for(k = 1; k < 10; k++)
                      {
                         Node* adj = copy(n);
@@ -66,10 +63,6 @@ List* get_adj_nodes(Node* n)
                         if(is_valid(adj))
                            pushBack(list, adj);
                      }
-               }
-            }
-      }
-   print_node(n);
    return list;
 }
 
